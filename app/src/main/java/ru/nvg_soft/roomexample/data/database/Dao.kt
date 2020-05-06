@@ -22,7 +22,7 @@ interface Dao {
     fun findPersonByName(name: String): Person
 
     @Insert
-    fun insertAllPerson(vararg person: Person)
+    suspend fun insertAllPerson(vararg person: Person)
 
 
     @Delete

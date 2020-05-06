@@ -3,11 +3,11 @@ package ru.nvg_soft.roomexample.repositories
 import ru.nvg_soft.roomexample.data.Person
 
 interface BaseRepository {
-    fun insert(person: Person)
+   suspend fun insert(person: Person)
 
-    fun update(person: Person)
+    suspend fun update(person: Person)
 
-    fun delete(person: Person)
+    suspend fun delete(person: Person)
 
-    fun deleteAll()
+   suspend fun deleteAll()
 }

@@ -3,6 +3,8 @@ package ru.nvg_soft.roomexample.repositories
 import android.app.Application
 
 import androidx.lifecycle.LiveData
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 import ru.nvg_soft.roomexample.data.Person
 import ru.nvg_soft.roomexample.data.database.Dao
@@ -23,13 +25,13 @@ class PersonRepository(applicationContext: Application):BaseRepository {
         personDao = database!!.personDao()
     }
     //region CRUD operation
-    override fun insert(person: Person) = personDao.insertAllPerson(person)
+    override suspend fun insert(person: Person) = withContext(Dispatchers.IO){personDao.insertAllPerson(person)}
 
-    override fun update(person: Person) = personDao.updatePerson(person)
+    override suspend fun update(person: Person) = withContext(Dispatchers.IO){personDao.updatePerson(person)}
 
-    override fun delete(person: Person) = personDao.deletePerson(person)
+    override suspend fun delete(person: Person) = withContext(Dispatchers.IO){personDao.deletePerson(person)}
 
-    override fun deleteAll() = personDao.deleteAll()
+    override suspend fun deleteAll() = withContext(Dispatchers.IO){personDao.deleteAll()}
 
     fun getAll():LiveData<List<Person>> = personDao.getAllPersons()
 

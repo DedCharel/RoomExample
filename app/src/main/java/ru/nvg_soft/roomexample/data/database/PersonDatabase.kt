@@ -23,7 +23,7 @@ abstract class PersonDatabase: RoomDatabase() {
                     )
                         .fallbackToDestructiveMigration()
                         //.addCallback(roomCallback)
-                        .allowMainThreadQueries() //все будет в Ui потоке НИКОГДА ТАК НЕ ДЕЛАТЬ!!!
+                        //.allowMainThreadQueries() //все будет в Ui потоке НИКОГДА ТАК НЕ ДЕЛАТЬ!!!
                         .build()
                 }
             }
