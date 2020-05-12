@@ -16,9 +16,12 @@ class PersonRepository(applicationContext: Application):BaseRepository {
     companion object{
         @Volatile private var INSTANCE : PersonRepository? = null
 
-        fun getInstance(applicationContext: Application): PersonRepository{
-            return INSTANCE ?: PersonRepository(applicationContext)
+        fun getInstance(applicationContext: Application): PersonRepository?{
+            if(INSTANCE==null){
+            synchronized(PersonRepository::class){
+                INSTANCE = PersonRepository(applicationContext)}
         }
+            return INSTANCE}
     }
     init {
         val database = PersonDatabase.getInstance(applicationContext.applicationContext)

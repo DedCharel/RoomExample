@@ -9,8 +9,8 @@ import ru.nvg_soft.roomexample.data.Person
 
 @Dao
 interface Dao {
-    @Query("SELECT * FROM person ORDER BY name")
-    fun getAllPersons(): LiveData<List<Person>>
+        @Query("SELECT * FROM person ORDER BY name")
+        fun getAllPersons(): LiveData<List<Person>>
 
 
     @Query("SELECT * FROM person WHERE personId IN (:personIds)")
