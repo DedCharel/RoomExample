@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         initView()
         initViewModel()
-        btn_add.setOnClickListener { addData() }
+        fab.setOnClickListener { addData() }
     }
 
     private fun addData() {

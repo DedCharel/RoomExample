@@ -6,8 +6,6 @@ import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_add_person.*
 import ru.nvg_soft.roomexample.R
 import ru.nvg_soft.roomexample.data.Person
-import ru.nvg_soft.roomexample.repositories.PersonRepository
-import ru.nvg_soft.roomexample.ui.adapters.PersonAdapter
 import ru.nvg_soft.roomexample.viewmodel.AddPersonViewModel
 
 class AddPersonActivity:AppCompatActivity() {
