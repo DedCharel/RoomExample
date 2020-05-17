@@ -1,7 +1,9 @@
 package ru.nvg_soft.roomexample.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -28,10 +30,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun addData() {
 
-            viewModel.insert(Person(null, "Иванов Иван Иванович", 101, 10, 2010))
-            viewModel.insert(Person(null, "Петров Петр Петрович", 101, 10, 2010))
-            viewModel.insert(Person(null, "Васильев Василий Васильевич", 101, 10, 2010))
+         Log.d("M_MainActivity","addPerson")
 
+        var intent =Intent(layoutInflater.context,AddPersonActivity::class.java)
+            layoutInflater.context.startActivity(intent)
 
     }
 

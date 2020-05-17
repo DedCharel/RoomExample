@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/et_person_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Name"
+        android:padding="16dp"/>
+    <EditText
+        android:id="@+id/et_DOB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter DOB"
+        android:padding="16dp"
+        android:layout_below="@id/et_person_name"/>
+    <EditText
+        android:id="@+id/et_weight"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter weight"
+        android:padding="16dp"
+        android:layout_below="@id/et_DOB"/>
+    <EditText
+        android:id="@+id/et_height"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter height"
+        android:padding="16dp"
+        android:layout_below="@id/et_DOB"
+        android:layout_toRightOf="@id/et_weight"/>
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_weight"
+        android:text="Add"/>
+
+</RelativeLayout>

@@ -12,12 +12,12 @@ import ru.nvg_soft.roomexample.repositories.PersonRepository
 class MainViewModel(application: Application): AndroidViewModel(application) {
 
     private val repository = PersonRepository.getInstance(application)
-    private val persons = repository.getAll()
+    private val persons = repository!!.getAll()
 
 
 
       fun insert(person: Person){
-          viewModelScope.launch{repository.insert(person)}
+          viewModelScope.launch{repository?.insert(person)}
     }
     fun getPersonData():LiveData<List<Person>>{
 
