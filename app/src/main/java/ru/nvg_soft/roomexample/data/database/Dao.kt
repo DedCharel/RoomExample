@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 import androidx.room.Dao
+import ru.nvg_soft.roomexample.data.Event
 import ru.nvg_soft.roomexample.data.Person
 
 
@@ -33,5 +34,12 @@ interface Dao {
 
     @Query("DELETE FROM person")
     fun deleteAll()
+
+    //Event
+    @Query("SELECT * FROM event")
+    fun getAllEvent():LiveData<List<Event>>
+
+    @Insert
+    suspend fun insertEvent(vararg event: Event)
 
 }

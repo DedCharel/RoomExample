@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.nvg_soft.roomexample.R
-import ru.nvg_soft.roomexample.data.Person
 import ru.nvg_soft.roomexample.ui.adapters.PersonAdapter
 import ru.nvg_soft.roomexample.viewmodel.MainViewModel
 
@@ -26,6 +25,13 @@ class MainActivity : AppCompatActivity() {
         initView()
         initViewModel()
         fab.setOnClickListener { addData() }
+        btn_open_event.setOnClickListener { openEvent() }
+    }
+
+    private fun openEvent() {
+        var intent =Intent(layoutInflater.context,EventActivity::class.java)
+        layoutInflater.context.startActivity(intent)
+
     }
 
     private fun addData() {

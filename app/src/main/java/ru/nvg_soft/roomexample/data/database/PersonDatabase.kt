@@ -4,9 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import ru.nvg_soft.roomexample.data.Event
 import ru.nvg_soft.roomexample.data.Person
 
-@Database(entities = [Person::class], version = 1)
+@Database(entities = [Person::class, Event::class], version = 2)
 abstract class PersonDatabase: RoomDatabase() {
     abstract fun personDao(): Dao
 

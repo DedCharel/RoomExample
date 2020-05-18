@@ -5,13 +5,14 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import ru.nvg_soft.roomexample.data.Event
 
 import ru.nvg_soft.roomexample.data.Person
 import ru.nvg_soft.roomexample.data.database.Dao
 import ru.nvg_soft.roomexample.data.database.PersonDatabase
 
-class PersonRepository(applicationContext: Application):BaseRepository {
-    private lateinit var personDao:Dao
+class PersonRepository(applicationContext: Application) {
+    private lateinit var dao:Dao
 
     companion object{
         @Volatile private var INSTANCE : PersonRepository? = null
@@ -25,18 +26,22 @@ class PersonRepository(applicationContext: Application):BaseRepository {
     }
     init {
         val database = PersonDatabase.getInstance(applicationContext.applicationContext)
-        personDao = database!!.personDao()
+        dao = database!!.personDao()
     }
     //region CRUD operation
-    override suspend fun insert(person: Person) = withContext(Dispatchers.IO){personDao.insertAllPerson(person)}
+    suspend fun insertPerson(person: Person) = withContext(Dispatchers.IO){dao.insertAllPerson(person)}
 
-    override suspend fun update(person: Person) = withContext(Dispatchers.IO){personDao.updatePerson(person)}
+    suspend fun updatePerson(person: Person) = withContext(Dispatchers.IO){dao.updatePerson(person)}
 
-    override suspend fun delete(person: Person) = withContext(Dispatchers.IO){personDao.deletePerson(person)}
+     suspend fun deletePerson(person: Person) = withContext(Dispatchers.IO){dao.deletePerson(person)}
 
-    override suspend fun deleteAll() = withContext(Dispatchers.IO){personDao.deleteAll()}
+     suspend fun deleteAllPerson() = withContext(Dispatchers.IO){dao.deleteAll()}
 
-    fun getAll():LiveData<List<Person>> = personDao.getAllPersons()
+    fun getAllPerson():LiveData<List<Person>> = dao.getAllPersons()
 
     //end region
+
+    fun getAllEvent():LiveData<List<Event>> = dao.getAllEvent()
+
+    suspend fun insertEvent(event: Event) = withContext(Dispatchers.IO){dao.insertEvent(event)}
 }

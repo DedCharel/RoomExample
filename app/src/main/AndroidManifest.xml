@@ -19,6 +19,12 @@
         <activity android:name=".ui.AddPersonActivity">
 
         </activity>
+        <activity android:name=".ui.AddEventActivity">
+
+        </activity>
+        <activity android:name=".ui.EventActivity">
+
+        </activity>
     </application>
 
 </manifest>
